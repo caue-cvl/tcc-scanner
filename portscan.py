@@ -1,13 +1,14 @@
 import nmap 
    
-begin = 70
+begin = 78
 end = 80
-target = '192.168.0.17'
+target = '192.168.0.26'
    
 scanner = nmap.PortScanner() 
 
 def banner():
-    print(""" __      ___                       _         __       _                   
+    print("""
+ __      ___                       _         __       _                   
  \ \    / (_)                     | |       / _|     | |                  
   \ \  / / _ ___  __ _  ___     __| | ___  | |_ _   _| |_ _   _ _ __ ___  
    \ \/ / | / __|/ _` |/ _ \   / _` |/ _ \ |  _| | | | __| | | | '__/ _ \ 
@@ -19,19 +20,18 @@ def banner():
 banner()
 arr_ports_filtered = []
 arr_ports_open = []
-for i in range(begin,end+1):
-    res = scanner.scan(target,str(i))
-    res = res['scan'][target]['tcp'][i]['state']
-    if(res != 'filtered'):
-        arr_ports_filtered.append(i)
-        print('PORTA FILTRADA ADICIONADA')
-    elif (res != 'open'):
-        arr_ports_open.append(i)
-        print('PORTA ABERTA ADICIONADA')
-    #else:
-        #####print(f'VAI TOMAR NO CU CAUE. To no laço {i}', end = "\r") LOADING NA MESMA LINHA
+cont_ports_filtered = 0
+cont_ports_open = 0
 
-inpt_pergunta_verbosidade_portas_filtradas = str(input("Deseja verificar portas filtradas (S/N)? ")).upper()[0]
-if (inpt_pergunta_verbosidade_portas_filtradas == 'S'):
-    print(f"Foram detectadas {len(arr_ports_filtered)} portas filtradas. São elas: {arr_ports_filtered}")
-print(f"Foram detectadas {len(arr_ports_open)} portas abertas   . São elas: {arr_ports_open}")
+for i in range(begin,end+1):
+
+    resu = scanner.scan(target,str(i),arguments='-sV')
+    res_state = resu['scan'][target]['tcp'][i]['state']
+    res_name = resu['scan'][target]['tcp'][i]['name']
+    res_product = resu['scan'][target]['tcp'][i]['product']
+    res_version = resu['scan'][target]['tcp'][i]['version']
+
+    if res_state == 'closed':
+        continue
+    else:
+        print(f'Port {i} is {res_state}, with {res_name} protocol in {res_product} at {res_version}.')
