@@ -28,8 +28,6 @@ for i in range(begin,end+1):
     elif (res != 'open'):
         arr_ports_open.append(i)
         print('PORTA ABERTA ADICIONADA')
-    #else:
-        #####print(f'VAI TOMAR NO CU CAUE. To no laço {i}', end = "\r") LOADING NA MESMA LINHA
 
 inpt_pergunta_verbosidade_portas_filtradas = str(input("Deseja verificar portas filtradas (S/N)? ")).upper()[0]
 if (inpt_pergunta_verbosidade_portas_filtradas == 'S'):
