@@ -8,20 +8,19 @@ scanner = nmap.PortScanner()
 
 def banner():
     print("""
- __      ___                       _         __       _                   
- \ \    / (_)                     | |       / _|     | |                  
-  \ \  / / _ ___  __ _  ___     __| | ___  | |_ _   _| |_ _   _ _ __ ___  
-   \ \/ / | / __|/ _` |/ _ \   / _` |/ _ \ |  _| | | | __| | | | '__/ _ \ 
-    \  /  | \__ \ (_| | (_) | | (_| |  __/ | | | |_| | |_| |_| | | | (_) |
-     \/   |_|___/\__,_|\___/   \__,_|\___| |_|  \__,_|\__|\__,_|_|  \___/ 
+  _______ _____ _____            ______   _______ ______ _____ 
+ |__   __/ ____/ ____|          |  ____/\|__   __|  ____/ ____|
+    | | | |   | |       ______  | |__ /  \  | |  | |__ | |     
+    | | | |   | |      |______| |  __/ /\ \ | |  |  __|| |     
+    | | | |___| |____           | | / ____ \| |  | |___| |____ 
+    |_|  \_____\_____|          |_|/_/    \_\_|  |______\_____|
                                                                           
                                                                           """)
 
 banner()
-arr_ports_filtered = []
-arr_ports_open = []
-cont_ports_filtered = 0
-cont_ports_open = 0
+
+verbose = input('Você deseja fazer a pesquisa em verbose mode?(S/N): ')
+print()
 
 for i in range(begin,end+1):
 
@@ -31,7 +30,15 @@ for i in range(begin,end+1):
     res_product = resu['scan'][target]['tcp'][i]['product']
     res_version = resu['scan'][target]['tcp'][i]['version']
 
-    if res_state == 'closed':
-        continue
+    if verbose == 'S' or verbose == 's':
+        if res_state == 'closed':
+            print(f'Port {i} is {res_state}.')
+        else:
+            print(f'Port {i} is {res_state}, with {res_name} protocol in {res_product} at {res_version}.')
+    elif verbose == 'N' or verbose == 'n':
+        if res_state == 'closed':
+            continue
+        else:
+            print(f'Port {i} is {res_state}, with {res_name} protocol in {res_product} at {res_version}.')
     else:
-        print(f'Port {i} is {res_state}, with {res_name} protocol in {res_product} at {res_version}.')
+        continue
