@@ -23,8 +23,6 @@ total_results_high = 0
 total_results_medium = 0
 total_results_low = 0
 
-
-
 cve_id_crit = []
 cve_id_high = []
 cve_id_medium = []
