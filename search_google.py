@@ -1,5 +1,6 @@
 import requests
 import json
+import portscan
 
 # to search
 query = "springboot vulnerabilites"
@@ -33,12 +34,8 @@ severity_high_list = []
 severity_medium_list = []
 severity_low_list = []
 
-
-keyword_to_search = { 'keyword': 'ftp vsftpd 3.4' }
-
-
-def get_all_cves_available_for_search():
-    req = requests.get(RETRIEVE_A_COLLECTION_FROM_CVE, keyword_to_search)
+def get_all_cves_available_for_search(search):
+    req = requests.get(RETRIEVE_A_COLLECTION_FROM_CVE, search)
     json_response = json.loads(req.content.decode())
     set_total_results_variables(json_response)
     get_cve_according_severity(json_response)
@@ -118,8 +115,25 @@ def print_cve_id_and_severity(color, text, cve_id_list, severity_arr):
         print('------------------------------------------')
 
 
-get_all_cves_available_for_search()
-print_cve_id_and_severity(PURPLE, "CRITICAL", cve_id_crit, severity_crit_list)
-print_cve_id_and_severity(RED, "HIGH", cve_id_high, severity_high_list)
-print_cve_id_and_severity(YELLOW, "MEDIUM", cve_id_medium, severity_medium_list)
-print_cve_id_and_severity(CYAN, "LOW", cve_id_low, severity_low_list)
+services_availables = portscan.sequencia_execucao(20, 23)
+print(services_availables)
+for service in services_availables:
+    
+    severity_crit_list = []
+    severity_high_list = []
+    severity_medium_list = []
+    severity_low_list = []
+    cve_id_crit = []
+    cve_id_high = []
+    cve_id_medium = []
+    cve_id_low = []
+
+    keyword_to_search = { 'keyword': service }
+    get_all_cves_available_for_search(keyword_to_search)
+    try:        
+        print_cve_id_and_severity(PURPLE, "CRITICAL", cve_id_crit, severity_crit_list)
+        print_cve_id_and_severity(RED, "HIGH", cve_id_high, severity_high_list)
+        print_cve_id_and_severity(YELLOW, "MEDIUM", cve_id_medium, severity_medium_list)
+        print_cve_id_and_severity(CYAN, "LOW", cve_id_low, severity_low_list)
+    except IndexError:
+        print('ERRO NO INDEX')
