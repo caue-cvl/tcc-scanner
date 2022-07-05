@@ -1,0 +1,4 @@
+python-nmap
+google
+beatifulsoap4
+requests
