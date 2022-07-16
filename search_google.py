@@ -2,10 +2,23 @@ import requests
 import json
 import portscan
 import constantes
+from six.moves import configparser
+
+def load_auth_token_from_properties_file():
+    config = configparser.RawConfigParser()
+    config.read('properties/auth.properties')
+    return config.get('DatabaseSection', 'database.apiKey');
+
 
 def query_endpoint_to_get_cve(search):
     req = requests.get(constantes.ENDPOINT_API_SEARCH_CVE, search)
+    if req.text.find('Invalid apiKey'):
+        error_invalid_api_key()
     return json.loads(req.content.decode())
+
+def error_invalid_api_key():
+    raise Exception('''Chave de acesso para API inválida ou não configurada
+    \t   Por favor verifique o arquivo [ARQUIVO ALTERAR DEPOIS]''')
 
 def coletar_informacoes_especificas_from_endpoint_response(json_available, filtros_informacoes):
     cves_disponiveis = json_available['result']['CVE_Items']
@@ -42,9 +55,10 @@ def print_cve_id_and_severity(color, text, cve_id_list, severity_arr):
 
 def print_result():
     services_availables = portscan.sequencia_execucao()
+    api_key = load_auth_token_from_properties_file()
 
     for index, service in enumerate(services_availables):
-        keyword_to_search = { 'keyword': service }
+        keyword_to_search = { 'keyword': service, 'apiKey': api_key }
         json_response_from_search_endpoint = query_endpoint_to_get_cve(keyword_to_search)
         cve_id_list = coletar_informacoes_especificas_from_endpoint_response(json_response_from_search_endpoint, ['cve', 'CVE_data_meta', 'ID'])
         severity_list = coletar_informacoes_especificas_from_endpoint_response(json_response_from_search_endpoint, ['impact', 'baseMetricV2', 'cvssV2', 'baseScore'])
