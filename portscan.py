@@ -1,21 +1,11 @@
 #IMPORTAÇÃO DE BIBLIOTECA
 
-import nmap 
+import nmap
+import constantes
+import ipaddress
+from ping3 import ping
 
-# DECLARAÇÃO DE CONSTANTES
-
-RED   = "\033[1;31m"  
-BLUE  = "\033[1;34m"
-YELLOW = "\033[0;93m"
-CYAN  = "\033[1;36m"
-PURPLE = "\033[1;35;40m"
-GREEN = "\033[0;32m"
-RESET = "\033[0;0m"
-BOLD    = "\033[;1m"
-REVERSE = "\033[;7m"
-
-#DECLARAÇÃO DE VARIAVÉIS
-alvo = '192.168.0.17'
+portas = []
 
 #DECLARAÇÃO DE FUNÇÕES
 
@@ -40,7 +30,7 @@ def mostre_pergunta_verbose():
             mostre_pergunta_verbose()
 
 def porta_fechada(estado_conexao, porta):
-    print(f'{RED}Porta {porta}{RESET} está fechada.')
+    print(f'{constantes.RED}Porta {porta}{constantes.RESET} está fechada.')
     
 def porta_aberta(resultado_porta_scan, porta, arr_query_pesquisa_cve):
     servico_conexao = resultado_porta_scan['name']
@@ -48,14 +38,14 @@ def porta_aberta(resultado_porta_scan, porta, arr_query_pesquisa_cve):
     versao_conexao = resultado_porta_scan['version']
 
     if versao_conexao != '':
-        print(f'{GREEN}Porta {porta}{RESET} está aberta, com o serviço {servico_conexao} do produto {produto_conexao} na versão {versao_conexao}.')
+        print(f'{constantes.GREEN}Porta {porta}{constantes.RESET} está aberta, com o serviço {servico_conexao} do produto {produto_conexao} na versão {versao_conexao}.')
     else:
-        print(f'{YELLOW}Porta {porta}{RESET} está aberta, com o serviço {servico_conexao} do produto {produto_conexao}.\n{BOLD}(Versão não identificada){RESET}.')
+        print(f'{constantes.YELLOW}Porta {porta}{constantes.RESET} está aberta, com o serviço {servico_conexao} do produto {produto_conexao}.\n{constantes.BOLD}(Versão não identificada){constantes.RESET}.')
 
     query_pesquisa_cve = servico_conexao + ' ' + produto_conexao + (' ' + versao_conexao if versao_conexao != '' else '')
     arr_query_pesquisa_cve.append(query_pesquisa_cve)
 
-def escanear(inicio_escopo_scan, fim_escopo_scan, modo_verboso):
+def escanear(alvo, inicio_escopo_scan, fim_escopo_scan, modo_verboso):
     scanner = nmap.PortScanner()
     arr_query_pesquisa_cve = []
     for i in range(inicio_escopo_scan,fim_escopo_scan+1):
@@ -66,9 +56,54 @@ def escanear(inicio_escopo_scan, fim_escopo_scan, modo_verboso):
                 porta_fechada(estado_porta, i)
 
         if estado_porta == 'open':
+            salvar_porta_aberta(resultado['nmap']['scaninfo']['tcp']['services'])
             porta_aberta(resultado['scan'][alvo]['tcp'][i], i, arr_query_pesquisa_cve)
     return arr_query_pesquisa_cve
 
-def sequencia_execucao(porta_inicio, porta_fim):
+
+def salvar_porta_aberta(porta):
+    global portas
+    portas.append(porta)
+
+def ler_input_porta(porta):
+    ok = False
+    valor = 0
+    while True:
+        valor_porta = str(input(porta))
+        if valor_porta.isnumeric():
+            valor = int(valor_porta)
+            ok = True
+        else:
+            print('Digite uma porta válida.')
+        if ok:
+            break
+    return valor
+
+def ler_input_alvo(alvo):
+    ok = False
+    valor = ''
+    while True:
+        try:
+            valor_alvo = str(input(alvo))
+            if ipaddress.ip_address(valor_alvo):
+                valor = str(valor_alvo)
+                ok = True 
+            else:
+                print('Digite um IP válido.')
+            alvo_detectavel = ping(valor)  
+            if alvo_detectavel == None:
+                print('IP inalcançável.')
+                ok = False
+            if ok:
+                break
+        except:
+            print('Digite um IP válido.')
+    return valor
+    
+
+def sequencia_execucao():
     banner()
-    return escanear(porta_inicio, porta_fim, mostre_pergunta_verbose())
+    alvo = ler_input_alvo('Digite o IP da máquina ALVO: ')
+    porta_inicio = ler_input_porta('Digite o número da porta inicial: ')
+    porta_fim = ler_input_porta('Digite o número da porta final: ')
+    return escanear(alvo, porta_inicio, porta_fim, mostre_pergunta_verbose())
