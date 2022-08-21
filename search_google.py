@@ -3,6 +3,7 @@ import json
 import portscan
 import constantes
 from six.moves import configparser
+import os
 
 json_final = {}
 
@@ -72,6 +73,11 @@ def print_result():
     
     with open('data.json', 'w') as f:
         json.dump(teste_json, f, indent=4)
+
+    if os.path.exists('data.json'):
+        os.system('java -jar gerador_de_relatorios_detalhados.jar')
+
+    
 
 
 
