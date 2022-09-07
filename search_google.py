@@ -76,6 +76,9 @@ def print_cve_id_and_severity(color, text, cve_id_list, severity_arr):
             print(f'[ + ] - CVE-ID: {color}{cve_id}{constantes.RESET} | BASE SCORE: {color}{severity_arr[cve_id_list.index(cve_id)]}{constantes.RESET}')
             print(f'      - REFERENCE: https://nvd.nist.gov/vuln/detail/{cve_id}')
 
+def print_non_cve_found():
+    print(f'[ + ] - {constantes.GREEN}NENHUMA CVE ENCONTRADA{constantes.RESET} ')
+
 def print_result():
     services_availables = portscan.sequencia_execucao()
     api_key = load_auth_token_from_properties_file()
@@ -83,11 +86,16 @@ def print_result():
     teste_json = {}
 
     for index, service in enumerate(services_availables):
-        keyword_to_search = { 'keyword': service, 'apiKey': api_key }
-        json_response_from_search_endpoint = query_endpoint_to_get_cve(keyword_to_search)
-        cve_id_list = coletar_informacoes_especificas_from_endpoint_response(json_response_from_search_endpoint, ['cve', 'CVE_data_meta', 'ID'])
-        severity_list = coletar_informacoes_especificas_from_endpoint_response(json_response_from_search_endpoint, ['impact', 'baseMetric', 'cvssV2', 'baseScore'])
-        get_cves_founds_in_search_endpoint(cve_id_list, severity_list, index)
+        json_response_from_search_endpoint = {'resultsPerPage': 0, 'startIndex': 0, 'totalResults': 0, 'result': {'CVE_Items': []}}
+        if service != 'Não aplicavel para pesquisa':
+            keyword_to_search = { 'keyword': service, 'apiKey': api_key }
+            json_response_from_search_endpoint = query_endpoint_to_get_cve(keyword_to_search)
+            cve_id_list = coletar_informacoes_especificas_from_endpoint_response(json_response_from_search_endpoint, ['cve', 'CVE_data_meta', 'ID'])
+            severity_list = coletar_informacoes_especificas_from_endpoint_response(json_response_from_search_endpoint, ['impact', 'baseMetric', 'cvssV2', 'baseScore'])
+            get_cves_founds_in_search_endpoint(cve_id_list, severity_list, index)
+        else:
+            print_porta_cve_encontrada(index)
+            print_non_cve_found()
         teste_json = ainda_nao_sei_o_nome(index, service, json_response_from_search_endpoint)
     
     with open('data.json', 'w') as f:
@@ -96,24 +104,20 @@ def print_result():
     if os.path.exists('data.json'):
         os.system('java -jar gerador_de_relatorios_detalhados.jar')
 
-    
-
-
-
 def get_cves_founds_in_search_endpoint(cve_id_list, severity_list, index):
-    print_porta_cve_encontrada(cve_id_list, severity_list, index)
+    print_porta_cve_encontrada(index)
+    if cve_id_list == severity_list:
+        print_non_cve_found()
     print_cve_id_and_severity(constantes.PURPLE, "CRITICAL", cve_id_list['CRITICAL'], severity_list['CRITICAL'])
     print_cve_id_and_severity(constantes.RED, "HIGH", cve_id_list['HIGH'], severity_list['HIGH'])
     print_cve_id_and_severity(constantes.YELLOW, "MEDIUM", cve_id_list['MEDIUM'], severity_list['MEDIUM'])
     print_cve_id_and_severity(constantes.CYAN, "LOW", cve_id_list['LOW'], severity_list['LOW'])
 
-def print_porta_cve_encontrada(cve_id_list, severity_list, index):
-    nenhuma_cve_encontrada = cve_id_list != severity_list
-    if nenhuma_cve_encontrada:
-        print('\n\n')
-        print('------------------------------------------------------------------------')
-        print(f'\t\t\t\t{constantes.PURPLE}PORTA {portscan.portas[index]}{constantes.RESET}')
-        print('------------------------------------------------------------------------')
+def print_porta_cve_encontrada(index):
+    print('\n\n')
+    print('------------------------------------------------------------------------')
+    print(f'\t\t\t\t{constantes.PURPLE}PORTA {portscan.portas[index]}{constantes.RESET}')
+    print('------------------------------------------------------------------------')
 
 
 def ainda_nao_sei_o_nome(index, service, response):

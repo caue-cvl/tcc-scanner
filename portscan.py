@@ -40,7 +40,10 @@ def porta_aberta(resultado_porta_scan, porta, arr_query_pesquisa_cve):
     else:
         print(f'{constantes.YELLOW}Porta {porta}{constantes.RESET} está aberta, com o serviço {servico_conexao} do produto {produto_conexao}.\n{constantes.BOLD}(Versão não identificada){constantes.RESET}.')
 
-    query_pesquisa_cve = servico_conexao + ' ' + produto_conexao + (' ' + versao_conexao if versao_conexao != '' else '')
+    if produto_conexao == '':
+        query_pesquisa_cve = 'Não aplicavel para pesquisa'
+    else:
+        query_pesquisa_cve = servico_conexao + ' ' + produto_conexao + (' ' + versao_conexao if versao_conexao != '' else '')
     arr_query_pesquisa_cve.append(query_pesquisa_cve)
 
 def escanear(alvo, inicio_escopo_scan, fim_escopo_scan, modo_verboso):
