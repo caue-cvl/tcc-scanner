@@ -2,3 +2,4 @@ python-nmap
 google
 beatifulsoap4
 requests
+ping3
