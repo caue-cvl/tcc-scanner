@@ -2,6 +2,11 @@
 
 import nmap
 import constantes
+<<<<<<< HEAD
+=======
+import ipaddress
+from ping3 import ping
+>>>>>>> 53e1a8c832159b4aac2d389e007e1ff8e68353d1
 
 portas = []
 
@@ -66,9 +71,53 @@ def salvar_porta_aberta(porta):
     global portas
     portas.append(porta)
 
+<<<<<<< HEAD
 def sequencia_execucao():
     banner()
     alvo = str(input('Digite o IP da máquina ALVO: '))
     porta_inicio = int(input('Digite o número da porta inicial: '))
     porta_fim = int(input('Digite o número da porta inicial: '))
+=======
+def ler_input_porta(porta):
+    ok = False
+    valor = 0
+    while True:
+        valor_porta = str(input(porta))
+        if valor_porta.isnumeric():
+            valor = int(valor_porta)
+            ok = True
+        else:
+            print('Digite uma porta válida.')
+        if ok:
+            break
+    return valor
+
+def ler_input_alvo(alvo):
+    ok = False
+    valor = ''
+    while True:
+        try:
+            valor_alvo = str(input(alvo))
+            if ipaddress.ip_address(valor_alvo):
+                valor = str(valor_alvo)
+                ok = True 
+            else:
+                print('Digite um IP válido.')
+            alvo_detectavel = ping(valor)  
+            if alvo_detectavel == None:
+                print('IP inalcançável.')
+                ok = False
+            if ok:
+                break
+        except:
+            print('Digite um IP válido.')
+    return valor
+    
+
+def sequencia_execucao():
+    banner()
+    alvo = ler_input_alvo('Digite o IP da máquina ALVO: ')
+    porta_inicio = ler_input_porta('Digite o número da porta inicial: ')
+    porta_fim = ler_input_porta('Digite o número da porta final: ')
+>>>>>>> 53e1a8c832159b4aac2d389e007e1ff8e68353d1
     return escanear(alvo, porta_inicio, porta_fim, mostre_pergunta_verbose())

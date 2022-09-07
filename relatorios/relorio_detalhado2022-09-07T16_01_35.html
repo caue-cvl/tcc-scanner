@@ -1,0 +1,2064 @@
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8' /> 
+	<meta name='description' content='' />
+	<meta name='robots' content='noodp, noydir' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+	<meta id="timeStampFormat" name="timeStampFormat" content='MMM d, yyyy hh:mm:ss a'/>
+	
+        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css' />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <link href='https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@ff53917fbbdb5ef820abbbe4d199a6942dc771ff/v3html/css/extent.css' type='text/css' rel='stylesheet' />
+	
+	<title>ExtentReports</title>
+
+	<style type='text/css'>
+		/* json-tree */
+		.jstBracket,.jstComma,.jstValue{white-space:pre-wrap}.jstValue{font-size:10px;font-weight:400;font-family:"Lucida Console",Monaco,monospace}.jstProperty{color:#666;word-wrap:break-word}.jstBool{color:#2525CC}.jstNum{color:#D036D0}.jstNull{color:gray}.jstStr{color:#2DB669}.jstFold:after{content:' -';cursor:pointer}.jstExpand{white-space:normal}.jstExpand:after{content:' +';cursor:pointer}.jstFolded{white-space:normal!important}.jstHiddenBlock{display:none}
+	</style>
+	
+	<script type="text/javascript">
+		/*! json-tree - v0.2.2 - 2017-09-25, MIT LICENSE */
+		var JSONTree=function(){var n={"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#x27;","/":"&#x2F;"},t=0,r=0;this.create=function(n,t){return r+=1,N(u(n,0,!1),{class:"jstValue"})};var e=function(t){return t.replace(/[&<>'"]/g,function(t){return n[t]})},s=function(){return r+"_"+t++},u=function(n,t,r){if(null===n)return f(r?t:0);switch(typeof n){case"boolean":return l(n,r?t:0);case"number":return i(n,r?t:0);case"string":return o(n,r?t:0);default:return n instanceof Array?a(n,t,r):c(n,t,r)}},c=function(n,t,r){var e=s(),u=Object.keys(n).map(function(r){return j(r,n[r],t+1,!0)}).join(m()),c=[g("{",r?t:0,e),N(u,{id:e}),p("}",t)].join("\n");return N(c,{})},a=function(n,t,r){var e=s(),c=n.map(function(n){return u(n,t+1,!0)}).join(m());return[g("[",r?t:0,e),N(c,{id:e}),p("]",t)].join("\n")},o=function(n,t){var r=e(JSON.stringify(n));return N(v(r,t),{class:"jstStr"})},i=function(n,t){return N(v(n,t),{class:"jstNum"})},l=function(n,t){return N(v(n,t),{class:"jstBool"})},f=function(n){return N(v("null",n),{class:"jstNull"})},j=function(n,t,r){var s=v(e(JSON.stringify(n))+": ",r),c=N(u(t,r,!1),{});return N(s+c,{class:"jstProperty"})},m=function(){return N(",\n",{class:"jstComma"})},N=function(n,t){return d("span",t,n)},d=function(n,t,r){return"<"+n+Object.keys(t).map(function(n){return" "+n+'="'+t[n]+'"'}).join("")+">"+r+"</"+n+">"},g=function(n,t,r){return N(v(n,t),{class:"jstBracket"})+N("",{class:"jstFold",onclick:"JSONTree.toggle('"+r+"')"})};this.toggle=function(n){var t=document.getElementById(n),r=t.parentNode,e=t.previousElementSibling;""===t.className?(t.className="jstHiddenBlock",r.className="jstFolded",e.className="jstExpand"):(t.className="",r.className="",e.className="jstFold")};var p=function(n,t){return N(v(n,t),{})},v=function(n,t){return Array(2*t+1).join(" ")+n};return this}();
+	</script>
+</head>
+	<body class='extent dark default hide-overflow '>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo black"><img src="https://cdn.rawgit.com/extent-framework/extent-github-cdn/d74480e/commons/img/logo.png"></a>
+		<!-- slideout menu -->
+		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+						<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></a></li>
+		</ul>
+		<!-- report name -->
+		<span class='report-name'>ExtentReports</span>
+		<!-- report headline -->
+		<span class='report-headline'></span>
+		<!-- nav-right -->
+		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+			<a href='#!'>
+			<span class='label blue darken-3 suite-start-time'>Sep 7, 2022 04:01:35 PM</span>
+			</a>
+		</ul>
+	</div>
+</nav>		<!-- container -->
+		<div class='container'>
+<div id='test-view' class='view'>
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- test toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+				<i class='material-icons'>warning</i> Status
+				</a>
+				<ul id='tests-toggle' class='dropdown-content'>
+										<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+					<li status='fatal'><a href='#!'>Fatal <i class='material-icons red-text text-darken-4 text-darken-3'>cancel</i></a></li>
+					<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
+					<li status='warning'><a href='#!'>Warning <i class='material-icons orange-text'>warning</i></a></li>
+					<li class='divider'></li>
+					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+				</ul>
+			</div>
+			<!-- test toggle -->
+			<!-- category toggle -->
+			<!-- category toggle -->
+			<!-- clear filters -->
+			<div class='chip transparent hide'>
+				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+				<i class='material-icons'>close</i> Clear
+				</a>
+			</div>
+			<!-- clear filters -->
+			<!-- enable dashboard -->
+			<div id='toggle-test-view-charts' class='chip transparent'>
+				<a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+				<i class='material-icons'>track_changes</i> Dashboard
+				</a>
+			</div>
+			<!-- enable dashboard -->
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+				<i class='material-icons'>search</i> Search
+				</a>
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+<div id='test-view-charts' class='subview-full'>
+    <div id='charts-row' class='row nm-v nm-h'>
+        <div class='col s12 m6 l6 np-h'>
+            <div class='card-panel nm-v'>
+                <div class='left panel-name'>Tests</div>
+                <div class='chart-box' style="max-height:94px;">
+                    <canvas id='parent-analysis' width='90' height='70'></canvas>
+                </div>
+                <div class='block text-small'>
+                    <span class='tooltipped' data-position='top' data-tooltip='25%'><span class='strong'>1</span> test(s) passed</span>
+                </div>
+                <div class='block text-small'>
+                    <span class='strong tooltipped' data-position='top' data-tooltip='50%'>2</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> skipped
+                </div>
+            </div>
+        </div>
+        <div class='col s12 m6 l6 np-h'>
+            <div class='card-panel nm-v'>
+                <div class='left panel-name'>Steps</div>
+                <div class='chart-box' style="max-height:94px;">
+                    <canvas id='child-analysis' width='90' height='70'></canvas>
+                </div>
+                <div class='block text-small'>
+                    <span class='tooltipped' data-position='top' data-tooltip='7.143%'><span class='strong'>1</span> step(s) passed</span>
+                </div>
+                <div class='block text-small'>
+                    <span class='strong tooltipped' data-position='top' data-tooltip='42.857%'>6</span> step(s) failed, 
+                    <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> skipped, 
+                    <span class='strong tooltipped' data-position='top' data-tooltip='50%'>7</span> others
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="timeline-chart" class="row nm-v nm-h">
+        <div class="col s12 m12 l12 np-h">
+            <div class="card-panel">
+                <div class='left panel-name'>Timeline (seconds)</div>
+                <div class="chart-box" style="width:98%;max-height:145px;">
+                    <canvas id="timeline" height="120"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>	<div class='subview-left left'>
+		<div class='view-summary'>
+			<ul id='test-collection' class='test-collection'>
+				<li class='test displayed active has-leaf fail' status='fail' bdd='false' test-id='1'>
+					<div class='test-heading'>
+						<span class='test-name'>ALTO</span>
+						<span class='test-time'>Sep 7, 2022 04:01:36 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Sep 7, 2022 04:01:36 PM</span>
+	<span class='label end-time'>Sep 7, 2022 04:01:36 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+22ms</span>
+</div>
+<ul class='collapsible node-list' data-collapsible='accordion'>
+	<li class='node level-1  fail' status='fail' test-id='2'>
+		<div class='collapsible-header'>
+			<div class='node-name'>PORTA 23 - telnet</div>
+			<span class='node-time'>Sep 7, 2022 04:01:36 PM</span>
+			&middot; <span class='node-duration'>0h 0m 0s+15ms</span>
+			<span class='test-status right fail'>fail</span>
+		</div>
+		<ul class='collapsible node-list' data-collapsible='accordion'>
+	<li class='node level-2  fail' status='fail' test-id='3'>
+		<div class='collapsible-header'>
+			<div class='node-name'>CVE-2022-39028</div>
+			<span class='node-time'>Sep 7, 2022 04:01:36 PM</span>
+			&middot; <span class='node-duration'>0h 0m 0s+1ms</span>
+			<span class='test-status right fail'>fail</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='fail'>
+							<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									7.5<p id='72389277099364' style='display:none'></p> <script>function getElementByXpath(path) {
+  return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+}; element = getElementByXpath("//*[@id='72389277099364']/../..//*[@class='timestamp']"); element.innerHTML = 'Pontuacao';</script><script>while(document.getElementsByTagName('th').length != 0){
+    document.getElementsByTagName('th')[0].parentNode.parentNode.removeChild(document.getElementsByTagName('th')[0].parentNode.parentNode.firstChild)
+}</script>
+								
+							</td>
+						</tr>
+						<tr class='log' status='fail'>
+							<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"telnetd in GNU Inetutils through 2.3, MIT krb5-appl through 1.0.3, and derivative works has a NULL pointer dereference via 0xff 0xf7 or 0xff 0xf8. In a typical installation, the telnetd application would crash but the telnet service would remain available through inetd. However, if the telnetd application has many crashes within a short time interval, the telnet service would become unavailable after inetd logs a \"telnet\/tcp server failing (looping), service terminated\" error. NOTE: MIT krb5-appl is not supported upstream but is shipped by a few Linux distributions. The affected code was removed from the supported MIT Kerberos 5 (aka krb5) product many years ago, at version 1.8."<p id='72389282896630' style='display:none'></p> <script>function getElementByXpath(path) {
+  return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+}; element = getElementByXpath("//*[@id='72389282896630']/../..//*[@class='timestamp']"); element.innerHTML = 'Detalhes';</script><script>while(document.getElementsByTagName('th').length != 0){
+    document.getElementsByTagName('th')[0].parentNode.parentNode.removeChild(document.getElementsByTagName('th')[0].parentNode.parentNode.firstChild)
+}</script>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<ul class='collapsible node-list' data-collapsible='accordion'>
+	<li class='node level-3 leaf fail' status='fail' test-id='4'>
+		<div class='collapsible-header'>
+			<div class='node-name'>Referencias</div>
+			<span class='node-time'>Sep 7, 2022 04:01:36 PM</span>
+			&middot; <span class='node-duration'>0h 0m 0s+1ms</span>
+			<span class='test-status right fail'>fail</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='fail'>
+							<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"https://lists.gnu.org/archive/html/bug-inetutils/2022-08/msg00002.html"
+								
+							</td>
+						</tr>
+						<tr class='log' status='fail'>
+							<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"https://git.hadrons.org/cgit/debian/pkgs/inetutils.git/commit/?id=113da8021710d871c7dd72d2a4d5615d42d64289"
+								
+							</td>
+						</tr>
+						<tr class='log' status='fail'>
+							<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"https://pierrekim.github.io/blog/2022-08-24-2-byte-dos-freebsd-netbsd-telnetd-netkit-telnetd-inetutils-telnetd-kerberos-telnetd.html"
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+		</ul>
+	</li>
+	<li class='node level-2  fail' status='fail' test-id='15'>
+		<div class='collapsible-header'>
+			<div class='node-name'>CVE-2000-1195</div>
+			<span class='node-time'>Sep 7, 2022 04:01:36 PM</span>
+			&middot; <span class='node-duration'>0h 0m 0s+5ms</span>
+			<span class='test-status right fail'>fail</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='fail'>
+							<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									7.5<p id='72389293011121' style='display:none'></p> <script>function getElementByXpath(path) {
+  return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+}; element = getElementByXpath("//*[@id='72389293011121']/../..//*[@class='timestamp']"); element.innerHTML = 'Pontuacao';</script><script>while(document.getElementsByTagName('th').length != 0){
+    document.getElementsByTagName('th')[0].parentNode.parentNode.removeChild(document.getElementsByTagName('th')[0].parentNode.parentNode.firstChild)
+}</script>
+								
+							</td>
+						</tr>
+						<tr class='log' status='fail'>
+							<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"telnet daemon (telnetd) from the Linux netkit package before netkit-telnet-0.16 allows remote attackers to bypass authentication when telnetd is running with the -L command line option."<p id='72389293172204' style='display:none'></p> <script>function getElementByXpath(path) {
+  return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+}; element = getElementByXpath("//*[@id='72389293172204']/../..//*[@class='timestamp']"); element.innerHTML = 'Detalhes';</script><script>while(document.getElementsByTagName('th').length != 0){
+    document.getElementsByTagName('th')[0].parentNode.parentNode.removeChild(document.getElementsByTagName('th')[0].parentNode.parentNode.firstChild)
+}</script>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<ul class='collapsible node-list' data-collapsible='accordion'>
+	<li class='node level-3 leaf fail' status='fail' test-id='16'>
+		<div class='collapsible-header'>
+			<div class='node-name'>Referencias</div>
+			<span class='node-time'>Sep 7, 2022 04:01:36 PM</span>
+			&middot; <span class='node-duration'>0h 0m 0s+5ms</span>
+			<span class='test-status right fail'>fail</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='fail'>
+							<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://www.caldera.com/support/security/advisories/CSSA-2000-008.0.txt"
+								
+							</td>
+						</tr>
+						<tr class='log' status='fail'>
+							<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"https://exchange.xforce.ibmcloud.com/vulnerabilities/4225"
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+		</ul>
+	</li>
+		</ul>
+	</li>
+	<li class='node level-1  fail' status='fail' test-id='25'>
+		<div class='collapsible-header'>
+			<div class='node-name'>PORTA 25 - smtp</div>
+			<span class='node-time'>Sep 7, 2022 04:01:36 PM</span>
+			&middot; <span class='node-duration'>0h 0m 0s+5ms</span>
+			<span class='test-status right fail'>fail</span>
+		</div>
+		<ul class='collapsible node-list' data-collapsible='accordion'>
+	<li class='node level-2  fail' status='fail' test-id='26'>
+		<div class='collapsible-header'>
+			<div class='node-name'>CVE-2005-0337</div>
+			<span class='node-time'>Sep 7, 2022 04:01:36 PM</span>
+			&middot; <span class='node-duration'>0h 0m 0s+5ms</span>
+			<span class='test-status right fail'>fail</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='fail'>
+							<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									7.5<p id='72389299599163' style='display:none'></p> <script>function getElementByXpath(path) {
+  return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+}; element = getElementByXpath("//*[@id='72389299599163']/../..//*[@class='timestamp']"); element.innerHTML = 'Pontuacao';</script><script>while(document.getElementsByTagName('th').length != 0){
+    document.getElementsByTagName('th')[0].parentNode.parentNode.removeChild(document.getElementsByTagName('th')[0].parentNode.parentNode.firstChild)
+}</script>
+								
+							</td>
+						</tr>
+						<tr class='log' status='fail'>
+							<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"Postfix 2.1.3, when \/proc\/net\/if_inet6 is not available and permit_mx_backup is enabled in smtpd_recipient_restrictions, allows remote attackers to bypass e-mail restrictions and perform mail relaying by sending mail to an IPv6 hostname."<p id='72389299774232' style='display:none'></p> <script>function getElementByXpath(path) {
+  return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+}; element = getElementByXpath("//*[@id='72389299774232']/../..//*[@class='timestamp']"); element.innerHTML = 'Detalhes';</script><script>while(document.getElementsByTagName('th').length != 0){
+    document.getElementsByTagName('th')[0].parentNode.parentNode.removeChild(document.getElementsByTagName('th')[0].parentNode.parentNode.firstChild)
+}</script>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<ul class='collapsible node-list' data-collapsible='accordion'>
+	<li class='node level-3 leaf fail' status='fail' test-id='27'>
+		<div class='collapsible-header'>
+			<div class='node-name'>Referencias</div>
+			<span class='node-time'>Sep 7, 2022 04:01:36 PM</span>
+			&middot; <span class='node-duration'>0h 0m 0s+5ms</span>
+			<span class='test-status right fail'>fail</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='fail'>
+							<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=267837"
+								
+							</td>
+						</tr>
+						<tr class='log' status='fail'>
+							<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://www.securityfocus.com/bid/12445"
+								
+							</td>
+						</tr>
+						<tr class='log' status='fail'>
+							<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://secunia.com/advisories/14137/"
+								
+							</td>
+						</tr>
+						<tr class='log' status='fail'>
+							<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://www.redhat.com/support/errata/RHSA-2005-152.html"
+								
+							</td>
+						</tr>
+						<tr class='log' status='fail'>
+							<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://marc.info/?l=bugtraq&m=110763358832637&w=2"
+								
+							</td>
+						</tr>
+						<tr class='log' status='fail'>
+							<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"https://exchange.xforce.ibmcloud.com/vulnerabilities/19218"
+								
+							</td>
+						</tr>
+						<tr class='log' status='fail'>
+							<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"https://oval.cisecurity.org/repository/search/definition/oval%3Aorg.mitre.oval%3Adef%3A11339"
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+		</ul>
+	</li>
+		</ul>
+	</li>
+</ul>
+					</div>
+				</li>
+				<li class='test displayed active has-leaf fatal' status='fatal' bdd='false' test-id='5'>
+					<div class='test-heading'>
+						<span class='test-name'>CRITICO</span>
+						<span class='test-time'>Sep 7, 2022 04:01:36 PM</span>
+						<span class='test-status right fatal'>fatal</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Sep 7, 2022 04:01:36 PM</span>
+	<span class='label end-time'>Sep 7, 2022 04:01:36 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+22ms</span>
+</div>
+<ul class='collapsible node-list' data-collapsible='accordion'>
+	<li class='node level-1  fatal' status='fatal' test-id='6'>
+		<div class='collapsible-header'>
+			<div class='node-name'>PORTA 23 - telnet</div>
+			<span class='node-time'>Sep 7, 2022 04:01:36 PM</span>
+			&middot; <span class='node-duration'>0h 0m 0s+8ms</span>
+			<span class='test-status right fatal'>fatal</span>
+		</div>
+		<ul class='collapsible node-list' data-collapsible='accordion'>
+	<li class='node level-2  fatal' status='fatal' test-id='7'>
+		<div class='collapsible-header'>
+			<div class='node-name'>CVE-2001-0554</div>
+			<span class='node-time'>Sep 7, 2022 04:01:36 PM</span>
+			&middot; <span class='node-duration'>0h 0m 0s+7ms</span>
+			<span class='test-status right fatal'>fatal</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='fatal'>
+							<td class='status fatal' title='fatal' alt='fatal'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									10.0<p id='72389283716762' style='display:none'></p> <script>function getElementByXpath(path) {
+  return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+}; element = getElementByXpath("//*[@id='72389283716762']/../..//*[@class='timestamp']"); element.innerHTML = 'Pontuacao';</script><script>while(document.getElementsByTagName('th').length != 0){
+    document.getElementsByTagName('th')[0].parentNode.parentNode.removeChild(document.getElementsByTagName('th')[0].parentNode.parentNode.firstChild)
+}</script>
+								
+							</td>
+						</tr>
+						<tr class='log' status='fatal'>
+							<td class='status fatal' title='fatal' alt='fatal'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"Buffer overflow in BSD-based telnetd telnet daemon on various operating systems allows remote attackers to execute arbitrary commands via a set of options including AYT (Are You There), which is not properly handled by the telrcv function."<p id='72389283951292' style='display:none'></p> <script>function getElementByXpath(path) {
+  return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+}; element = getElementByXpath("//*[@id='72389283951292']/../..//*[@class='timestamp']"); element.innerHTML = 'Detalhes';</script><script>while(document.getElementsByTagName('th').length != 0){
+    document.getElementsByTagName('th')[0].parentNode.parentNode.removeChild(document.getElementsByTagName('th')[0].parentNode.parentNode.firstChild)
+}</script>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<ul class='collapsible node-list' data-collapsible='accordion'>
+	<li class='node level-3 leaf fatal' status='fatal' test-id='8'>
+		<div class='collapsible-header'>
+			<div class='node-name'>Referencias</div>
+			<span class='node-time'>Sep 7, 2022 04:01:36 PM</span>
+			&middot; <span class='node-duration'>0h 0m 0s+7ms</span>
+			<span class='test-status right fatal'>fatal</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='fatal'>
+							<td class='status fatal' title='fatal' alt='fatal'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://www.securityfocus.com/archive/1/197804"
+								
+							</td>
+						</tr>
+						<tr class='log' status='fatal'>
+							<td class='status fatal' title='fatal' alt='fatal'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://www.cert.org/advisories/CA-2001-21.html"
+								
+							</td>
+						</tr>
+						<tr class='log' status='fatal'>
+							<td class='status fatal' title='fatal' alt='fatal'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"ftp://ftp.FreeBSD.org/pub/FreeBSD/CERT/advisories/FreeBSD-SA-01:49.telnetd.asc"
+								
+							</td>
+						</tr>
+						<tr class='log' status='fatal'>
+							<td class='status fatal' title='fatal' alt='fatal'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://www.securityfocus.com/bid/3064"
+								
+							</td>
+						</tr>
+						<tr class='log' status='fatal'>
+							<td class='status fatal' title='fatal' alt='fatal'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://online.securityfocus.com/archive/1/199496"
+								
+							</td>
+						</tr>
+						<tr class='log' status='fatal'>
+							<td class='status fatal' title='fatal' alt='fatal'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://online.securityfocus.com/archive/1/203000"
+								
+							</td>
+						</tr>
+						<tr class='log' status='fatal'>
+							<td class='status fatal' title='fatal' alt='fatal'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://online.securityfocus.com/archive/1/199541"
+								
+							</td>
+						</tr>
+						<tr class='log' status='fatal'>
+							<td class='status fatal' title='fatal' alt='fatal'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://www.ciac.org/ciac/bulletins/l-131.shtml"
+								
+							</td>
+						</tr>
+						<tr class='log' status='fatal'>
+							<td class='status fatal' title='fatal' alt='fatal'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://www.calderasystems.com/support/security/advisories/CSSA-2001-030.0.txt"
+								
+							</td>
+						</tr>
+						<tr class='log' status='fatal'>
+							<td class='status fatal' title='fatal' alt='fatal'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"ftp://stage.caldera.com/pub/security/openserver/CSSA-2001-SCO.10/CSSA-2001-SCO.10.txt"
+								
+							</td>
+						</tr>
+						<tr class='log' status='fatal'>
+							<td class='status fatal' title='fatal' alt='fatal'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://www.cisco.com/warp/public/707/catos-telrcv-vuln-pub.shtml"
+								
+							</td>
+						</tr>
+						<tr class='log' status='fatal'>
+							<td class='status fatal' title='fatal' alt='fatal'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://ftp.support.compaq.com/patches/.new/html/SSRT0745U.shtml"
+								
+							</td>
+						</tr>
+						<tr class='log' status='fatal'>
+							<td class='status fatal' title='fatal' alt='fatal'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://distro.conectiva.com.br/atualizacoes/?id=a&anuncio=000413"
+								
+							</td>
+						</tr>
+						<tr class='log' status='fatal'>
+							<td class='status fatal' title='fatal' alt='fatal'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://www.debian.org/security/2001/dsa-070"
+								
+							</td>
+						</tr>
+						<tr class='log' status='fatal'>
+							<td class='status fatal' title='fatal' alt='fatal'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://www.debian.org/security/2001/dsa-075"
+								
+							</td>
+						</tr>
+						<tr class='log' status='fatal'>
+							<td class='status fatal' title='fatal' alt='fatal'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://archives.neohapsis.com/archives/hp/2001-q4/0014.html"
+								
+							</td>
+						</tr>
+						<tr class='log' status='fatal'>
+							<td class='status fatal' title='fatal' alt='fatal'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://online.securityfocus.com/advisories/3476"
+								
+							</td>
+						</tr>
+						<tr class='log' status='fatal'>
+							<td class='status fatal' title='fatal' alt='fatal'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://www.linux-mandrake.com/en/security/2001/MDKSA-2001-068.php3"
+								
+							</td>
+						</tr>
+						<tr class='log' status='fatal'>
+							<td class='status fatal' title='fatal' alt='fatal'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"ftp://ftp.netbsd.org/pub/NetBSD/security/advisories/NetBSD-SA2001-012.txt.asc"
+								
+							</td>
+						</tr>
+						<tr class='log' status='fatal'>
+							<td class='status fatal' title='fatal' alt='fatal'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"ftp://patches.sgi.com/support/free/security/advisories/20010801-01-P"
+								
+							</td>
+						</tr>
+						<tr class='log' status='fatal'>
+							<td class='status fatal' title='fatal' alt='fatal'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://www.redhat.com/support/errata/RHSA-2001-099.html"
+								
+							</td>
+						</tr>
+						<tr class='log' status='fatal'>
+							<td class='status fatal' title='fatal' alt='fatal'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://www.redhat.com/support/errata/RHSA-2001-100.html"
+								
+							</td>
+						</tr>
+						<tr class='log' status='fatal'>
+							<td class='status fatal' title='fatal' alt='fatal'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://www.novell.com/linux/security/advisories/2001_029_nkitb_txt.html"
+								
+							</td>
+						</tr>
+						<tr class='log' status='fatal'>
+							<td class='status fatal' title='fatal' alt='fatal'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://www.osvdb.org/809"
+								
+							</td>
+						</tr>
+						<tr class='log' status='fatal'>
+							<td class='status fatal' title='fatal' alt='fatal'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"https://exchange.xforce.ibmcloud.com/vulnerabilities/6875"
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+		</ul>
+	</li>
+	<li class='node level-2  fatal' status='fatal' test-id='13'>
+		<div class='collapsible-header'>
+			<div class='node-name'>CVE-2021-27171</div>
+			<span class='node-time'>Sep 7, 2022 04:01:36 PM</span>
+			&middot; <span class='node-duration'>0h 0m 0s+0ms</span>
+			<span class='test-status right fatal'>fatal</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='fatal'>
+							<td class='status fatal' title='fatal' alt='fatal'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									10.0<p id='72389292581754' style='display:none'></p> <script>function getElementByXpath(path) {
+  return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+}; element = getElementByXpath("//*[@id='72389292581754']/../..//*[@class='timestamp']"); element.innerHTML = 'Pontuacao';</script><script>while(document.getElementsByTagName('th').length != 0){
+    document.getElementsByTagName('th')[0].parentNode.parentNode.removeChild(document.getElementsByTagName('th')[0].parentNode.parentNode.firstChild)
+}</script>
+								
+							</td>
+						</tr>
+						<tr class='log' status='fatal'>
+							<td class='status fatal' title='fatal' alt='fatal'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"An issue was discovered on FiberHome HG6245D devices through RP2613. It is possible to start a Linux telnetd as root on port 26\/tcp by using the CLI interface commands of ddd and shell (or tshell)."<p id='72389292748407' style='display:none'></p> <script>function getElementByXpath(path) {
+  return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+}; element = getElementByXpath("//*[@id='72389292748407']/../..//*[@class='timestamp']"); element.innerHTML = 'Detalhes';</script><script>while(document.getElementsByTagName('th').length != 0){
+    document.getElementsByTagName('th')[0].parentNode.parentNode.removeChild(document.getElementsByTagName('th')[0].parentNode.parentNode.firstChild)
+}</script>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<ul class='collapsible node-list' data-collapsible='accordion'>
+	<li class='node level-3 leaf fatal' status='fatal' test-id='14'>
+		<div class='collapsible-header'>
+			<div class='node-name'>Referencias</div>
+			<span class='node-time'>Sep 7, 2022 04:01:36 PM</span>
+			&middot; <span class='node-duration'>0h 0m 0s+0ms</span>
+			<span class='test-status right fatal'>fatal</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='fatal'>
+							<td class='status fatal' title='fatal' alt='fatal'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"https://pierrekim.github.io/blog/2021-01-12-fiberhome-ont-0day-vulnerabilities.html#telnet-cli-privilege-escalation"
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+		</ul>
+	</li>
+		</ul>
+	</li>
+	<li class='node level-1  fatal' status='fatal' test-id='34'>
+		<div class='collapsible-header'>
+			<div class='node-name'>PORTA 21 - ftp</div>
+			<span class='node-time'>Sep 7, 2022 04:01:36 PM</span>
+			&middot; <span class='node-duration'>0h 0m 0s+0ms</span>
+			<span class='test-status right fatal'>fatal</span>
+		</div>
+		<ul class='collapsible node-list' data-collapsible='accordion'>
+	<li class='node level-2  fatal' status='fatal' test-id='35'>
+		<div class='collapsible-header'>
+			<div class='node-name'>CVE-2011-2523</div>
+			<span class='node-time'>Sep 7, 2022 04:01:36 PM</span>
+			&middot; <span class='node-duration'>0h 0m 0s+0ms</span>
+			<span class='test-status right fatal'>fatal</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='fatal'>
+							<td class='status fatal' title='fatal' alt='fatal'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									10.0<p id='72389306703476' style='display:none'></p> <script>function getElementByXpath(path) {
+  return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+}; element = getElementByXpath("//*[@id='72389306703476']/../..//*[@class='timestamp']"); element.innerHTML = 'Pontuacao';</script><script>while(document.getElementsByTagName('th').length != 0){
+    document.getElementsByTagName('th')[0].parentNode.parentNode.removeChild(document.getElementsByTagName('th')[0].parentNode.parentNode.firstChild)
+}</script>
+								
+							</td>
+						</tr>
+						<tr class='log' status='fatal'>
+							<td class='status fatal' title='fatal' alt='fatal'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"vsftpd 2.3.4 downloaded between 20110630 and 20110703 contains a backdoor which opens a shell on port 6200\/tcp."<p id='72389306834552' style='display:none'></p> <script>function getElementByXpath(path) {
+  return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+}; element = getElementByXpath("//*[@id='72389306834552']/../..//*[@class='timestamp']"); element.innerHTML = 'Detalhes';</script><script>while(document.getElementsByTagName('th').length != 0){
+    document.getElementsByTagName('th')[0].parentNode.parentNode.removeChild(document.getElementsByTagName('th')[0].parentNode.parentNode.firstChild)
+}</script>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<ul class='collapsible node-list' data-collapsible='accordion'>
+	<li class='node level-3 leaf fatal' status='fatal' test-id='36'>
+		<div class='collapsible-header'>
+			<div class='node-name'>Referencias</div>
+			<span class='node-time'>Sep 7, 2022 04:01:36 PM</span>
+			&middot; <span class='node-duration'>0h 0m 0s+0ms</span>
+			<span class='test-status right fatal'>fatal</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='fatal'>
+							<td class='status fatal' title='fatal' alt='fatal'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"https://security-tracker.debian.org/tracker/CVE-2011-2523"
+								
+							</td>
+						</tr>
+						<tr class='log' status='fatal'>
+							<td class='status fatal' title='fatal' alt='fatal'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"https://www.openwall.com/lists/oss-security/2011/07/11/5"
+								
+							</td>
+						</tr>
+						<tr class='log' status='fatal'>
+							<td class='status fatal' title='fatal' alt='fatal'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"https://vigilance.fr/vulnerability/vsftpd-backdoor-in-version-2-3-4-10805"
+								
+							</td>
+						</tr>
+						<tr class='log' status='fatal'>
+							<td class='status fatal' title='fatal' alt='fatal'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"https://packetstormsecurity.com/files/102745/VSFTPD-2.3.4-Backdoor-Command-Execution.html"
+								
+							</td>
+						</tr>
+						<tr class='log' status='fatal'>
+							<td class='status fatal' title='fatal' alt='fatal'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"https://access.redhat.com/security/cve/cve-2011-2523"
+								
+							</td>
+						</tr>
+						<tr class='log' status='fatal'>
+							<td class='status fatal' title='fatal' alt='fatal'><i class='material-icons'>cancel</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://packetstormsecurity.com/files/162145/vsftpd-2.3.4-Backdoor-Command-Execution.html"
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+		</ul>
+	</li>
+		</ul>
+	</li>
+</ul>
+					</div>
+				</li>
+				<li class='test displayed active has-leaf warning' status='warning' bdd='false' test-id='9'>
+					<div class='test-heading'>
+						<span class='test-name'>MEDIO</span>
+						<span class='test-time'>Sep 7, 2022 04:01:36 PM</span>
+						<span class='test-status right warning'>warning</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Sep 7, 2022 04:01:36 PM</span>
+	<span class='label end-time'>Sep 7, 2022 04:01:36 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+22ms</span>
+</div>
+<ul class='collapsible node-list' data-collapsible='accordion'>
+	<li class='node level-1  warning' status='warning' test-id='10'>
+		<div class='collapsible-header'>
+			<div class='node-name'>PORTA 23 - telnet</div>
+			<span class='node-time'>Sep 7, 2022 04:01:36 PM</span>
+			&middot; <span class='node-duration'>0h 0m 0s+6ms</span>
+			<span class='test-status right warning'>warning</span>
+		</div>
+		<ul class='collapsible node-list' data-collapsible='accordion'>
+	<li class='node level-2  warning' status='warning' test-id='11'>
+		<div class='collapsible-header'>
+			<div class='node-name'>CVE-2020-8797</div>
+			<span class='node-time'>Sep 7, 2022 04:01:36 PM</span>
+			&middot; <span class='node-duration'>0h 0m 0s+0ms</span>
+			<span class='test-status right warning'>warning</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									6.9<p id='72389292069882' style='display:none'></p> <script>function getElementByXpath(path) {
+  return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+}; element = getElementByXpath("//*[@id='72389292069882']/../..//*[@class='timestamp']"); element.innerHTML = 'Pontuacao';</script><script>while(document.getElementsByTagName('th').length != 0){
+    document.getElementsByTagName('th')[0].parentNode.parentNode.removeChild(document.getElementsByTagName('th')[0].parentNode.parentNode.firstChild)
+}</script>
+								
+							</td>
+						</tr>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"Juplink RX4-1500 v1.0.3 allows remote attackers to gain root access to the Linux subsystem via an unsanitized exec call (aka Command Line Injection), if the undocumented telnetd service is enabled and the attacker can authenticate as admin from the local network."<p id='72389292280157' style='display:none'></p> <script>function getElementByXpath(path) {
+  return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+}; element = getElementByXpath("//*[@id='72389292280157']/../..//*[@class='timestamp']"); element.innerHTML = 'Detalhes';</script><script>while(document.getElementsByTagName('th').length != 0){
+    document.getElementsByTagName('th')[0].parentNode.parentNode.removeChild(document.getElementsByTagName('th')[0].parentNode.parentNode.firstChild)
+}</script>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<ul class='collapsible node-list' data-collapsible='accordion'>
+	<li class='node level-3 leaf warning' status='warning' test-id='12'>
+		<div class='collapsible-header'>
+			<div class='node-name'>Referencias</div>
+			<span class='node-time'>Sep 7, 2022 04:01:36 PM</span>
+			&middot; <span class='node-duration'>0h 0m 0s+0ms</span>
+			<span class='test-status right warning'>warning</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"https://cerne.xyz/bugs/CVE-2020-8797.html"
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+		</ul>
+	</li>
+	<li class='node level-2  warning' status='warning' test-id='17'>
+		<div class='collapsible-header'>
+			<div class='node-name'>CVE-2004-0911</div>
+			<span class='node-time'>Sep 7, 2022 04:01:36 PM</span>
+			&middot; <span class='node-duration'>0h 0m 0s+0ms</span>
+			<span class='test-status right warning'>warning</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									5.0<p id='72389297787438' style='display:none'></p> <script>function getElementByXpath(path) {
+  return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+}; element = getElementByXpath("//*[@id='72389297787438']/../..//*[@class='timestamp']"); element.innerHTML = 'Pontuacao';</script><script>while(document.getElementsByTagName('th').length != 0){
+    document.getElementsByTagName('th')[0].parentNode.parentNode.removeChild(document.getElementsByTagName('th')[0].parentNode.parentNode.firstChild)
+}</script>
+								
+							</td>
+						</tr>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"telnetd for netkit 0.17 and earlier, and possibly other versions, on Debian GNU\/Linux allows remote attackers to cause a denial of service (free of an invalid pointer), a different vulnerability than CVE-2001-0554."<p id='72389297976593' style='display:none'></p> <script>function getElementByXpath(path) {
+  return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+}; element = getElementByXpath("//*[@id='72389297976593']/../..//*[@class='timestamp']"); element.innerHTML = 'Detalhes';</script><script>while(document.getElementsByTagName('th').length != 0){
+    document.getElementsByTagName('th')[0].parentNode.parentNode.removeChild(document.getElementsByTagName('th')[0].parentNode.parentNode.firstChild)
+}</script>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<ul class='collapsible node-list' data-collapsible='accordion'>
+	<li class='node level-3 leaf warning' status='warning' test-id='18'>
+		<div class='collapsible-header'>
+			<div class='node-name'>Referencias</div>
+			<span class='node-time'>Sep 7, 2022 04:01:36 PM</span>
+			&middot; <span class='node-duration'>0h 0m 0s+0ms</span>
+			<span class='test-status right warning'>warning</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://www.securityfocus.com/archive/1/375743"
+								
+							</td>
+						</tr>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://www.debian.org/security/2004/dsa-556"
+								
+							</td>
+						</tr>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=273694"
+								
+							</td>
+						</tr>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"https://exchange.xforce.ibmcloud.com/vulnerabilities/17540"
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+		</ul>
+	</li>
+	<li class='node level-2  warning' status='warning' test-id='19'>
+		<div class='collapsible-header'>
+			<div class='node-name'>CVE-1999-0740</div>
+			<span class='node-time'>Sep 7, 2022 04:01:36 PM</span>
+			&middot; <span class='node-duration'>0h 0m 0s+0ms</span>
+			<span class='test-status right warning'>warning</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									6.4<p id='72389298425427' style='display:none'></p> <script>function getElementByXpath(path) {
+  return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+}; element = getElementByXpath("//*[@id='72389298425427']/../..//*[@class='timestamp']"); element.innerHTML = 'Pontuacao';</script><script>while(document.getElementsByTagName('th').length != 0){
+    document.getElementsByTagName('th')[0].parentNode.parentNode.removeChild(document.getElementsByTagName('th')[0].parentNode.parentNode.firstChild)
+}</script>
+								
+							</td>
+						</tr>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"Remote attackers can cause a denial of service on Linux in.telnetd telnet daemon through a malformed TERM environmental variable."<p id='72389298568586' style='display:none'></p> <script>function getElementByXpath(path) {
+  return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+}; element = getElementByXpath("//*[@id='72389298568586']/../..//*[@class='timestamp']"); element.innerHTML = 'Detalhes';</script><script>while(document.getElementsByTagName('th').length != 0){
+    document.getElementsByTagName('th')[0].parentNode.parentNode.removeChild(document.getElementsByTagName('th')[0].parentNode.parentNode.firstChild)
+}</script>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<ul class='collapsible node-list' data-collapsible='accordion'>
+	<li class='node level-3 leaf warning' status='warning' test-id='20'>
+		<div class='collapsible-header'>
+			<div class='node-name'>Referencias</div>
+			<span class='node-time'>Sep 7, 2022 04:01:36 PM</span>
+			&middot; <span class='node-duration'>0h 0m 0s+0ms</span>
+			<span class='test-status right warning'>warning</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://www.securityfocus.com/bid/594"
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+		</ul>
+	</li>
+	<li class='node level-2  warning' status='warning' test-id='21'>
+		<div class='collapsible-header'>
+			<div class='node-name'>CVE-2005-2040</div>
+			<span class='node-time'>Sep 7, 2022 04:01:36 PM</span>
+			&middot; <span class='node-duration'>0h 0m 0s+0ms</span>
+			<span class='test-status right warning'>warning</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									5.0<p id='72389298786886' style='display:none'></p> <script>function getElementByXpath(path) {
+  return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+}; element = getElementByXpath("//*[@id='72389298786886']/../..//*[@class='timestamp']"); element.innerHTML = 'Pontuacao';</script><script>while(document.getElementsByTagName('th').length != 0){
+    document.getElementsByTagName('th')[0].parentNode.parentNode.removeChild(document.getElementsByTagName('th')[0].parentNode.parentNode.firstChild)
+}</script>
+								
+							</td>
+						</tr>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"Multiple buffer overflows in the getterminaltype function in telnetd for Heimdal before 0.6.5 may allow remote attackers to execute arbitrary code, a different vulnerability than CVE-2005-0468 and CVE-2005-0469."<p id='72389298951826' style='display:none'></p> <script>function getElementByXpath(path) {
+  return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+}; element = getElementByXpath("//*[@id='72389298951826']/../..//*[@class='timestamp']"); element.innerHTML = 'Detalhes';</script><script>while(document.getElementsByTagName('th').length != 0){
+    document.getElementsByTagName('th')[0].parentNode.parentNode.removeChild(document.getElementsByTagName('th')[0].parentNode.parentNode.firstChild)
+}</script>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<ul class='collapsible node-list' data-collapsible='accordion'>
+	<li class='node level-3 leaf warning' status='warning' test-id='22'>
+		<div class='collapsible-header'>
+			<div class='node-name'>Referencias</div>
+			<span class='node-time'>Sep 7, 2022 04:01:36 PM</span>
+			&middot; <span class='node-duration'>0h 0m 0s+0ms</span>
+			<span class='test-status right warning'>warning</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://www.pdc.kth.se/heimdal/advisory/2005-06-20/"
+								
+							</td>
+						</tr>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://secunia.com/advisories/15718"
+								
+							</td>
+						</tr>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://www.debian.org/security/2005/dsa-758"
+								
+							</td>
+						</tr>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://www.gentoo.org/security/en/glsa/glsa-200506-24.xml"
+								
+							</td>
+						</tr>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://www.novell.com/linux/security/advisories/2005_40_heimdal.html"
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+		</ul>
+	</li>
+		</ul>
+	</li>
+	<li class='node level-1  warning' status='warning' test-id='28'>
+		<div class='collapsible-header'>
+			<div class='node-name'>PORTA 25 - smtp</div>
+			<span class='node-time'>Sep 7, 2022 04:01:36 PM</span>
+			&middot; <span class='node-duration'>0h 0m 0s+0ms</span>
+			<span class='test-status right warning'>warning</span>
+		</div>
+		<ul class='collapsible node-list' data-collapsible='accordion'>
+	<li class='node level-2  warning' status='warning' test-id='29'>
+		<div class='collapsible-header'>
+			<div class='node-name'>CVE-2011-1431</div>
+			<span class='node-time'>Sep 7, 2022 04:01:36 PM</span>
+			&middot; <span class='node-duration'>0h 0m 0s+0ms</span>
+			<span class='test-status right warning'>warning</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									6.8<p id='72389305255454' style='display:none'></p> <script>function getElementByXpath(path) {
+  return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+}; element = getElementByXpath("//*[@id='72389305255454']/../..//*[@class='timestamp']"); element.innerHTML = 'Pontuacao';</script><script>while(document.getElementsByTagName('th').length != 0){
+    document.getElementsByTagName('th')[0].parentNode.parentNode.removeChild(document.getElementsByTagName('th')[0].parentNode.parentNode.firstChild)
+}</script>
+								
+							</td>
+						</tr>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"The STARTTLS implementation in qmail-smtpd.c in qmail-smtpd in the netqmail-1.06-tls patch for netqmail 1.06 does not properly restrict I\/O buffering, which allows man-in-the-middle attackers to insert commands into encrypted SMTP sessions by sending a cleartext command that is processed after TLS is in place, related to a \"plaintext command injection\" attack, a similar issue to CVE-2011-0411."<p id='72389305508720' style='display:none'></p> <script>function getElementByXpath(path) {
+  return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+}; element = getElementByXpath("//*[@id='72389305508720']/../..//*[@class='timestamp']"); element.innerHTML = 'Detalhes';</script><script>while(document.getElementsByTagName('th').length != 0){
+    document.getElementsByTagName('th')[0].parentNode.parentNode.removeChild(document.getElementsByTagName('th')[0].parentNode.parentNode.firstChild)
+}</script>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<ul class='collapsible node-list' data-collapsible='accordion'>
+	<li class='node level-3 leaf warning' status='warning' test-id='30'>
+		<div class='collapsible-header'>
+			<div class='node-name'>Referencias</div>
+			<span class='node-time'>Sep 7, 2022 04:01:36 PM</span>
+			&middot; <span class='node-duration'>0h 0m 0s+0ms</span>
+			<span class='test-status right warning'>warning</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://www.kb.cert.org/vuls/id/MAPG-8D9M5Q"
+								
+							</td>
+						</tr>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://inoa.net/qmail-tls/vu555316.patch"
+								
+							</td>
+						</tr>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://www.securityfocus.com/archive/1/516901"
+								
+							</td>
+						</tr>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://www.postfix.org/CVE-2011-0411.html"
+								
+							</td>
+						</tr>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://www.vupen.com/english/advisories/2011/0612"
+								
+							</td>
+						</tr>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://www.kb.cert.org/vuls/id/555316"
+								
+							</td>
+						</tr>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://www.securityfocus.com/bid/46767"
+								
+							</td>
+						</tr>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://securityreason.com/securityalert/8144"
+								
+							</td>
+						</tr>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"https://exchange.xforce.ibmcloud.com/vulnerabilities/65932"
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+		</ul>
+	</li>
+		</ul>
+	</li>
+	<li class='node level-1  warning' status='warning' test-id='31'>
+		<div class='collapsible-header'>
+			<div class='node-name'>PORTA 25 - smtp</div>
+			<span class='node-time'>Sep 7, 2022 04:01:36 PM</span>
+			&middot; <span class='node-duration'>0h 0m 0s+0ms</span>
+			<span class='test-status right warning'>warning</span>
+		</div>
+		<ul class='collapsible node-list' data-collapsible='accordion'>
+	<li class='node level-2  warning' status='warning' test-id='32'>
+		<div class='collapsible-header'>
+			<div class='node-name'>CVE-2004-0925</div>
+			<span class='node-time'>Sep 7, 2022 04:01:36 PM</span>
+			&middot; <span class='node-duration'>0h 0m 0s+0ms</span>
+			<span class='test-status right warning'>warning</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									5.0<p id='72389306264511' style='display:none'></p> <script>function getElementByXpath(path) {
+  return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+}; element = getElementByXpath("//*[@id='72389306264511']/../..//*[@class='timestamp']"); element.innerHTML = 'Pontuacao';</script><script>while(document.getElementsByTagName('th').length != 0){
+    document.getElementsByTagName('th')[0].parentNode.parentNode.removeChild(document.getElementsByTagName('th')[0].parentNode.parentNode.firstChild)
+}</script>
+								
+							</td>
+						</tr>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"Postfix on Mac OS X 10.3.x through 10.3.5, with SMTPD AUTH enabled, does not properly clear the username between authentication attempts, which allows users with the longest username to prevent other valid users from being able to authenticate."<p id='72389306437135' style='display:none'></p> <script>function getElementByXpath(path) {
+  return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+}; element = getElementByXpath("//*[@id='72389306437135']/../..//*[@class='timestamp']"); element.innerHTML = 'Detalhes';</script><script>while(document.getElementsByTagName('th').length != 0){
+    document.getElementsByTagName('th')[0].parentNode.parentNode.removeChild(document.getElementsByTagName('th')[0].parentNode.parentNode.firstChild)
+}</script>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<ul class='collapsible node-list' data-collapsible='accordion'>
+	<li class='node level-3 leaf warning' status='warning' test-id='33'>
+		<div class='collapsible-header'>
+			<div class='node-name'>Referencias</div>
+			<span class='node-time'>Sep 7, 2022 04:01:36 PM</span>
+			&middot; <span class='node-duration'>0h 0m 0s+0ms</span>
+			<span class='test-status right warning'>warning</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://lists.apple.com/archives/security-announce/2004/Oct/msg00000.html"
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+		</ul>
+	</li>
+		</ul>
+	</li>
+	<li class='node level-1  warning' status='warning' test-id='37'>
+		<div class='collapsible-header'>
+			<div class='node-name'>PORTA 21 - ftp</div>
+			<span class='node-time'>Sep 7, 2022 04:01:36 PM</span>
+			&middot; <span class='node-duration'>0h 0m 0s+7ms</span>
+			<span class='test-status right warning'>warning</span>
+		</div>
+		<ul class='collapsible node-list' data-collapsible='accordion'>
+	<li class='node level-2  warning' status='warning' test-id='38'>
+		<div class='collapsible-header'>
+			<div class='node-name'>CVE-2011-0762</div>
+			<span class='node-time'>Sep 7, 2022 04:01:36 PM</span>
+			&middot; <span class='node-duration'>0h 0m 0s+7ms</span>
+			<span class='test-status right warning'>warning</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									4.0<p id='72389307443427' style='display:none'></p> <script>function getElementByXpath(path) {
+  return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+}; element = getElementByXpath("//*[@id='72389307443427']/../..//*[@class='timestamp']"); element.innerHTML = 'Pontuacao';</script><script>while(document.getElementsByTagName('th').length != 0){
+    document.getElementsByTagName('th')[0].parentNode.parentNode.removeChild(document.getElementsByTagName('th')[0].parentNode.parentNode.firstChild)
+}</script>
+								
+							</td>
+						</tr>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"The vsf_filename_passes_filter function in ls.c in vsftpd before 2.3.3 allows remote authenticated users to cause a denial of service (CPU consumption and process slot exhaustion) via crafted glob expressions in STAT commands in multiple FTP sessions, a different vulnerability than CVE-2010-2632."<p id='72389307629316' style='display:none'></p> <script>function getElementByXpath(path) {
+  return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+}; element = getElementByXpath("//*[@id='72389307629316']/../..//*[@class='timestamp']"); element.innerHTML = 'Detalhes';</script><script>while(document.getElementsByTagName('th').length != 0){
+    document.getElementsByTagName('th')[0].parentNode.parentNode.removeChild(document.getElementsByTagName('th')[0].parentNode.parentNode.firstChild)
+}</script>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<ul class='collapsible node-list' data-collapsible='accordion'>
+	<li class='node level-3 leaf warning' status='warning' test-id='39'>
+		<div class='collapsible-header'>
+			<div class='node-name'>Referencias</div>
+			<span class='node-time'>Sep 7, 2022 04:01:36 PM</span>
+			&middot; <span class='node-duration'>0h 0m 0s+7ms</span>
+			<span class='test-status right warning'>warning</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://securityreason.com/achievement_securityalert/95"
+								
+							</td>
+						</tr>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://cxib.net/stuff/vspoc232.c"
+								
+							</td>
+						</tr>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"ftp://vsftpd.beasts.org/users/cevans/untar/vsftpd-2.3.4/Changelog"
+								
+							</td>
+						</tr>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://www.securityfocus.com/bid/46617"
+								
+							</td>
+						</tr>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://www.kb.cert.org/vuls/id/590604"
+								
+							</td>
+						</tr>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://www.vupen.com/english/advisories/2011/0547"
+								
+							</td>
+						</tr>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://www.exploit-db.com/exploits/16270"
+								
+							</td>
+						</tr>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://lists.fedoraproject.org/pipermail/package-announce/2011-March/055881.html"
+								
+							</td>
+						</tr>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://www.vupen.com/english/advisories/2011/0639"
+								
+							</td>
+						</tr>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://www.redhat.com/support/errata/RHSA-2011-0337.html"
+								
+							</td>
+						</tr>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://lists.fedoraproject.org/pipermail/package-announce/2011-March/055882.html"
+								
+							</td>
+						</tr>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://lists.fedoraproject.org/pipermail/package-announce/2011-March/055957.html"
+								
+							</td>
+						</tr>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://www.vupen.com/english/advisories/2011/0668"
+								
+							</td>
+						</tr>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://www.securitytracker.com/id?1025186"
+								
+							</td>
+						</tr>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://www.mandriva.com/security/advisories?name=MDVSA-2011:049"
+								
+							</td>
+						</tr>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://www.vupen.com/english/advisories/2011/0713"
+								
+							</td>
+						</tr>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://www.ubuntu.com/usn/USN-1098-1"
+								
+							</td>
+						</tr>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://securityreason.com/securityalert/8109"
+								
+							</td>
+						</tr>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=622741"
+								
+							</td>
+						</tr>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://www.debian.org/security/2011/dsa-2305"
+								
+							</td>
+						</tr>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://marc.info/?l=bugtraq&m=133226187115472&w=2"
+								
+							</td>
+						</tr>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://lists.opensuse.org/opensuse-security-announce/2011-05/msg00005.html"
+								
+							</td>
+						</tr>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"https://exchange.xforce.ibmcloud.com/vulnerabilities/65873"
+								
+							</td>
+						</tr>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://www.securityfocus.com/archive/1/516748/100/0/threaded"
+								
+							</td>
+						</tr>
+						<tr class='log' status='warning'>
+							<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+							<td class='timestamp'>4:01:36 PM</td>
+							<td class='step-details'>
+									"http://jvn.jp/en/jp/JVN37417423/index.html"
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+		</ul>
+	</li>
+		</ul>
+	</li>
+</ul>
+					</div>
+				</li>
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='23'>
+					<div class='test-heading'>
+						<span class='test-name'>PORTAS SEM CVE'S</span>
+						<span class='test-time'>Sep 7, 2022 04:01:36 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Sep 7, 2022 04:01:36 PM</span>
+	<span class='label end-time'>Sep 7, 2022 04:01:36 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+0ms</span>
+</div>
+<ul class='collapsible node-list' data-collapsible='accordion'>
+	<li class='node level-1 leaf pass' status='pass' test-id='24'>
+		<div class='collapsible-header'>
+			<div class='node-name'>PORTA 22</div>
+			<span class='node-time'>Sep 7, 2022 04:01:36 PM</span>
+			&middot; <span class='node-duration'>0h 0m 0s+0ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+	</li>
+</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- subview left -->
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<div id='step-filters' class="right sr-filters">
+				<a class="btn-floating waves-effect waves-light green" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></a>
+				<a class="btn-floating waves-effect waves-light red" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></a>
+				<a class="btn-floating waves-effect waves-light red darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></a>
+				<a class="btn-floating waves-effect waves-light pink text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></a>
+				<a class="btn-floating waves-effect waves-light orange" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></a>
+				<a class="btn-floating waves-effect waves-light teal" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></a>
+				<a class="btn-floating waves-effect waves-light grey" status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></a>
+			</div>
+			<h5 class='test-name'></h5>
+		</div>
+	</div>
+	<!-- subview right -->
+</div>
+<!-- test view --><!-- category view --><!-- exception view --><div id='dashboard-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>Dashboard</h5>
+
+		<div class='row'>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Tests
+					<div class='panel-lead'>4</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Steps
+					<div class='panel-lead'>14</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Start
+					<div class='panel-lead'>Sep 7, 2022 04:01:35 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+			 		End
+			 		<div class='panel-lead'>Sep 7, 2022 04:01:36 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Time Taken
+					<div class='panel-lead'>0h 0m 0s+390ms</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dashboard view -->
+<!-- testrunner-logs view -->		</div>
+		<!-- container -->
+		<script>
+			var statusGroup = {
+                parentCount: 4,
+				passParent: 1,
+				failParent: 1,
+				fatalParent: 1,
+				errorParent: 0,
+				warningParent: 1,
+				skipParent: 0,
+				exceptionsParent: 3,
+				childCount: 14,
+				passChild: 1,
+				failChild: 3,
+				fatalChild: 3,
+				errorChild: 0,
+				warningChild: 7,
+				skipChild: 0,
+				infoChild: 0,
+				debugChild: 0,
+				exceptionsChild: 13,
+				grandChildCount: 0,
+				passGrandChild: 0,
+				failGrandChild: 0,
+				fatalGrandChild: 0,
+				errorGrandChild: 0,
+				warningGrandChild: 0,
+				skipGrandChild: 0,
+				infoGrandChild: 0,
+				debugGrandChild: 0,
+				exceptionsGrandChild: 0,
+			};
+		</script>
+		<script>
+			var timeline = {
+			        "ALTO":0.022,"CRITICO":0.022,"MEDIO":0.022,"PORTAS SEM CVE'S":0
+			};
+		</script>
+	
+		  <script src='https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@ff53917fbbdb5ef820abbbe4d199a6942dc771ff/v3html/js/extent.js' type='text/javascript'></script>
+		<script type='text/javascript'>
+		</script>
+	</body>
+</html>
